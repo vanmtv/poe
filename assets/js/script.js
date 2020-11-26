@@ -1,7 +1,9 @@
 let name = window.document.getElementById('nome')
-let emailh = window.document.getElementById('email')
+let emaill = window.document.getElementById('email')
+let assuntoo = document.querySelector('#assunto')
 let nameOk  = false
 let emailOk  = false
+let assuntoOk  = false
 
 function validaName(){
     let txtName = document.getElementById('txtName')
@@ -28,8 +30,23 @@ function validaEmail(){
     }
 }
 
-function submit(){
-    if(nameOk == true && emailOk == true){
+
+function validaAssunto(){
+    let txtAssunto = document.querySelector('#txtAssunto')
+    console.log(assunto.value)
+    if(assunto.value.length >=100){
+        txtAssunto.innerHTML = 'Texto muito grande, digite no máximo 100 caracteres'
+        txtAssunto.style.color = 'red'
+        txtAssunto.style.display = 'block'
+    }
+    else{
+        txtAssunto.style.display = 'none'
+        assuntoOk = true
+    }
+}
+
+function submited(){
+    if(nameOk == true && emailOk == true && assuntoOk == true){
         alert('Submitted')
     }
     else{
